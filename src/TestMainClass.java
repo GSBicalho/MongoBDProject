@@ -1,5 +1,7 @@
 import com.mongodb.BasicDBObject;
 
+import java.io.File;
+import java.io.PrintStream;
 import java.sql.*;
 import java.util.ArrayList;
 import java.util.Collections;
@@ -44,39 +46,76 @@ public class TestMainClass {
         //Creates basic objects
         ArrayList<BasicDBObject> lEstado = do1ToN("LE01ESTADO");
         ArrayList<BasicDBObject> lCidade = do1ToN("LE02CIDADE");
-        //ArrayList<BasicDBObject> lZona = do1ToN("LE03ZONA");
-        //ArrayList<BasicDBObject> lBairro = do1ToN("LE04BAIRRO");
-        //ArrayList<BasicDBObject> lUrna = do1ToN("LE05URNA");
-        //ArrayList<BasicDBObject> lSessao = do1ToN("LE06SESSAO");
-        //ArrayList<BasicDBObject> lPartido = do1ToN("LE07PARTIDO");
-        //ArrayList<BasicDBObject> lCandidato = do1ToN("LE08CANDIDATO");
-        //ArrayList<BasicDBObject> lCargo = do1ToN("LE09CARGO");
-        //ArrayList<BasicDBObject> lCandidatura = do1ToN("LE10CANDIDATURA", new String[]{});
-        //ArrayList<BasicDBObject> lPesquisa = do1ToN("LE12PESQUISA");
+        ArrayList<BasicDBObject> lZona = do1ToN("LE03ZONA");
+        ArrayList<BasicDBObject> lBairro = do1ToN("LE04BAIRRO");
+        ArrayList<BasicDBObject> lUrna = do1ToN("LE05URNA");
+        ArrayList<BasicDBObject> lSessao = do1ToN("LE06SESSAO");
+        ArrayList<BasicDBObject> lPartido = do1ToN("LE07PARTIDO");
+        ArrayList<BasicDBObject> lCandidato = do1ToN("LE08CANDIDATO");
+        ArrayList<BasicDBObject> lCargo = do1ToN("LE09CARGO");
+        ArrayList<BasicDBObject> lCandidatura = do1ToN("LE10CANDIDATURA", new String[]{});
+        ArrayList<BasicDBObject> lPesquisa = do1ToN("LE12PESQUISA");
 
-        //ArrayList<BasicDBObject> lPleito = do1ToN("LE11PLEITO");
-        //ArrayList<BasicDBObject> lIntencaoDeVoto = do1ToN("LE13INTENCAODEVOTO");
+        ArrayList<BasicDBObject> lPleito = do1ToN("LE11PLEITO");
+        ArrayList<BasicDBObject> lIntencaoDeVoto = do1ToN("LE13INTENCAODEVOTO");
 
         //Adds NToNRelations
-        //createNToNRelations(lPleito, lSessao, lCandidatura, "FKSESSAOCANDIDATURA", "FKCANDIDATURASESSAO", "Candidaturas", "Sessoes");
-        //createNToNRelations(lIntencaoDeVoto, lPesquisa, lCandidatura, "FKPESQUISACANDIDATURA", "FKCANDIDATURAPESQUISA", "Candidaturas", "Pesquisas");
+        createNToNRelations(lPleito, lSessao, lCandidatura, "FKSESSAOCANDIDATURA", "FKCANDIDATURASESSAO", "Candidaturas", "Sessoes");
+        createNToNRelations(lIntencaoDeVoto, lPesquisa, lCandidatura, "FKPESQUISACANDIDATURA", "FKCANDIDATURAPESQUISA", "Candidaturas", "Pesquisas");
 
         //Does embedding
         //lCidade = embed(lCidade, lBairro, "Bairros", "FKCIDADEBAIRRO");
-        lEstado = embed(lCidade, lEstado, "Cidades", "FKESTADOCIDADE");
+        //lCidade = embed(lCidade, lEstado, "Estado", "FKESTADOCIDADE");
         //lZona   = embed(lZona,   lSessao, "Sessoes", "FKZONASESSAO");
 
-        //these are now useless
-        //lCidade = null;
-        //lZona = null;
-        //lBairro = null
+        lCandidato = embed(lCandidato, lPartido, "Partido", "FKPARTIDOCANDIDATO");
 
-        lEstado.forEach(System.out::println);
+        //these are now useless
+        lEstado = null;
+        lPleito = null;
+        lIntencaoDeVoto = null;
+
+        //lCidade.forEach(System.out::println);
         //lCandidatura.forEach(System.out::println);
 
         //Closes connection
         closeConnection();
+
+        System.out.println();
+        System.out.println("Generating file...");
+        System.out.println();
+
+
+        File file = new File("file.txt");
+        file.delete();
+        try(PrintStream ps = new PrintStream(file)) {
+            writeCommands("LE01ESTADO", lEstado, ps);
+            writeCommands("LE02CIDADE", lCidade, ps);
+            writeCommands("LE03ZONA", lZona, ps);
+            writeCommands("LE04BAIRRO", lBairro, ps);
+            writeCommands("LE05URNA", lUrna, ps);
+            writeCommands("LE06SESSAO", lSessao, ps);
+            writeCommands("LE07PARTIDO", lPartido, ps);
+            writeCommands("LE08CANDIDATO", lCandidato, ps);
+            writeCommands("LE09CARGO", lCargo, ps);
+            writeCommands("LE10CANDIDATURA", lCandidatura, ps);
+            writeCommands("LE12PESQUISA", lPesquisa, ps);
+
+            writeCommands("LE11PLEITO", lPleito, ps);
+            writeCommands("LE13INTENCAODEVOTO", lIntencaoDeVoto, ps);
+        }
+
 	}
+
+	public static void writeCommands(String tableName, ArrayList<BasicDBObject> data, PrintStream out){
+        if(data == null) return;
+
+        out.println("db.createCollection(\"" + tableName + "\")");
+        data.forEach((obj) -> {
+            out.println("db." + tableName + ".insert(" + obj.toString() + ")");
+        });
+        out.println();
+    }
 
     public static class TwoStrings{
         String name, content;
@@ -205,18 +244,37 @@ public class TestMainClass {
                                                  String fieldInReceivingTable,
                                                  String fkNameInToBeEmbeddedTable){
         for(BasicDBObject objToReceive : toReceive){
-            String id = (String) objToReceive.get("_id");
-            ArrayList<BasicDBObject> listOfCities = new ArrayList<>();
+            String id = (String) objToReceive.get(fkNameInToBeEmbeddedTable);
+            ArrayList<BasicDBObject> listOfThingsToEmbed = new ArrayList<>();
 
+            toBeEmbedded
+                    .stream()
+                    .filter((obj) -> obj.get("_id").equals(id))
+                    .forEach((obj) -> {
+                        BasicDBObject temp = (BasicDBObject)obj.copy();
+                        temp.remove("_id");
+                        listOfThingsToEmbed.add(temp);
+                    });
+
+            if(listOfThingsToEmbed.size() == 1){
+                objToReceive.put(fieldInReceivingTable, listOfThingsToEmbed.get(0));
+            }else if(listOfThingsToEmbed.size() > 1){
+                objToReceive.put(fieldInReceivingTable, listOfThingsToEmbed.toArray());
+            }
+
+            objToReceive.remove(fkNameInToBeEmbeddedTable);
+
+            /*
             toBeEmbedded
                     .stream()
                     .filter((obj) -> obj.get(fkNameInToBeEmbeddedTable) != null)
                     .filter((obj) -> obj.get(fkNameInToBeEmbeddedTable).equals(id))
                     .forEach((obj) -> {
                         obj.remove(fkNameInToBeEmbeddedTable);
-                        listOfCities.add(obj);
+                        listOfThingsToEmbed.add(obj);
                     });
-            objToReceive.put(fieldInReceivingTable, listOfCities.toArray());
+            objToReceive.put(fieldInReceivingTable, listOfThingsToEmbed.toArray());
+            */
         }
 
         return toReceive;
@@ -246,7 +304,8 @@ public class TestMainClass {
         ArrayList<String> allForeignKeys = new ArrayList<>();
         foreignKeyBundles.forEach(fkb -> fkb.fks.forEach(fk -> allForeignKeys.add(fk.fkVariable)));
 
-        System.out.println("db.createCollection(\""+ targetTable +"\")");
+        //System.out.println("db.createCollection(\""+ targetTable +"\")");
+        System.out.println(targetTable);
         while(rs.next()){
             BasicDBObject obj = new BasicDBObject();
 
@@ -298,7 +357,7 @@ public class TestMainClass {
 
             //creating rest of variables
             for(String columnName : columnNames){
-                if(!allForeignKeys.contains(columnName)){
+                if(!allForeignKeys.contains(columnName) && rs.getString(columnName) != null){
                     obj.put(columnName, rs.getString(columnName));
                 }
             }
