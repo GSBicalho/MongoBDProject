@@ -13,6 +13,10 @@ public class TestMainClass {
     // JDBC driver name and database URL
     private static final String JDBC_DRIVER = "oracle.jdbc.driver.OracleDriver";
 
+    public static String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
+    public static String user = "g8937204";
+    public static String pass = "4703es";
+
     public static Connection conn = null;
     public static Statement stmt = null;
 
@@ -20,93 +24,245 @@ public class TestMainClass {
     public static final int CONNECTION_ERROR_SQL = 1;
     public static final int CONNECTION_ERROR_FORNAME = 2;
 
-	public static void main(String[] args) throws Exception {
+    public static HashMap<String, ArrayList<BasicDBObject>> databaseMap;
 
-        /*
-        if(args.length != 4){
-            System.out.println("USAGE: TestMainClass database_url:port login pass table_name");
-            return;
+    public static void main(String[] args) throws Exception {
+
+        // TestMainClass 1ToN TableToBeProcessed;
+
+        // TestMainClass NToN TableWithReferences
+        //                    TableToReceiveExtraFields TableThatWillNotReceiveExtraFields
+        //                    FkNameTowardsReceiver FkNameTowardsNonReceiver
+        //                    NewFieldInReceiver NewFieldInExtra;
+
+        // TestMainClass embed TableToReceive TableToBeEmbedded FieldInReceivingTable FkNameInTableToBeEmbedded;
+
+        // TestMainClass remove TableToBeProcessed;
+
+        startConnection(db_url, user, pass);
+        databaseMap = new HashMap<String, ArrayList<BasicDBObject>>();
+
+        if(args.length == 1 && args[0].equals("!")){
+            callTest();
+        }else if(args.length == 0){
+            callFromInputStream(System.in);
+            //callTest();
+        }else{
+            callFromArguments(args);
         }
 
-        String db_url = "jdbc:oracle:thin:@" + args[0] + ":xe";
-        String user = args[1];
-        String pass = args[2];
-        String targetTable = args[3];
-        /*/
-
-        String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
-        String user = "g8937204";
-        String pass = "4703es";
-        String targetTable = "LE02CIDADE";
-
-        /**/
-
-        //connects to SQL database
-        startConnection(db_url, user, pass);
-
-        //Creates basic objects
-        ArrayList<BasicDBObject> lEstado = do1ToN("LE01ESTADO");
-        ArrayList<BasicDBObject> lCidade = do1ToN("LE02CIDADE");
-        ArrayList<BasicDBObject> lZona = do1ToN("LE03ZONA");
-        ArrayList<BasicDBObject> lBairro = do1ToN("LE04BAIRRO");
-        ArrayList<BasicDBObject> lUrna = do1ToN("LE05URNA");
-        ArrayList<BasicDBObject> lSessao = do1ToN("LE06SESSAO");
-        ArrayList<BasicDBObject> lPartido = do1ToN("LE07PARTIDO");
-        ArrayList<BasicDBObject> lCandidato = do1ToN("LE08CANDIDATO");
-        ArrayList<BasicDBObject> lCargo = do1ToN("LE09CARGO");
-        ArrayList<BasicDBObject> lCandidatura = do1ToN("LE10CANDIDATURA", new String[]{});
-        ArrayList<BasicDBObject> lPesquisa = do1ToN("LE12PESQUISA");
-
-        ArrayList<BasicDBObject> lPleito = do1ToN("LE11PLEITO");
-        ArrayList<BasicDBObject> lIntencaoDeVoto = do1ToN("LE13INTENCAODEVOTO");
-
-        //Adds NToNRelations
-        createNToNRelations(lPleito, lSessao, lCandidatura, "FKSESSAOCANDIDATURA", "FKCANDIDATURASESSAO", "Candidaturas", "Sessoes");
-        createNToNRelations(lIntencaoDeVoto, lPesquisa, lCandidatura, "FKPESQUISACANDIDATURA", "FKCANDIDATURAPESQUISA", "Candidaturas", "Pesquisas");
-
-        //Does embedding
-        //lCidade = embed(lCidade, lBairro, "Bairros", "FKCIDADEBAIRRO");
-        //lCidade = embed(lCidade, lEstado, "Estado", "FKESTADOCIDADE");
-        //lZona   = embed(lZona,   lSessao, "Sessoes", "FKZONASESSAO");
-
-        lCandidato = embed(lCandidato, lPartido, "Partido", "FKPARTIDOCANDIDATO");
-
-        //these are now useless
-        lEstado = null;
-        lPleito = null;
-        lIntencaoDeVoto = null;
-
-        //lCidade.forEach(System.out::println);
-        //lCandidatura.forEach(System.out::println);
-
-        //Closes connection
         closeConnection();
 
-        System.out.println();
-        System.out.println("Generating file...");
-        System.out.println();
+        writeTables("file.txt");
 
+    }
 
-        File file = new File("file.txt");
-        file.delete();
-        try(PrintStream ps = new PrintStream(file)) {
-            writeCommands("LE01ESTADO", lEstado, ps);
-            writeCommands("LE02CIDADE", lCidade, ps);
-            writeCommands("LE03ZONA", lZona, ps);
-            writeCommands("LE04BAIRRO", lBairro, ps);
-            writeCommands("LE05URNA", lUrna, ps);
-            writeCommands("LE06SESSAO", lSessao, ps);
-            writeCommands("LE07PARTIDO", lPartido, ps);
-            writeCommands("LE08CANDIDATO", lCandidato, ps);
-            writeCommands("LE09CARGO", lCargo, ps);
-            writeCommands("LE10CANDIDATURA", lCandidatura, ps);
-            writeCommands("LE12PESQUISA", lPesquisa, ps);
+    public static void callTest() throws Exception {
+        String[] commands = {
+                "1TON LE01ESTADO",
+                "1TON LE02CIDADE",
+                "1TON LE03ZONA",
+                "1TON LE04BAIRRO",
+                "1TON LE05URNA",
+                "1TON LE06SESSAO",
+                "1TON LE07PARTIDO",
+                "1TON LE08CANDIDATO",
+                "1TON LE09CARGO",
+                "1TON LE10CANDIDATURA",
+                "1TON LE11PLEITO",
+                "1TON LE12PESQUISA",
+                "1TON LE13INTENCAODEVOTO",
 
-            writeCommands("LE11PLEITO", lPleito, ps);
-            writeCommands("LE13INTENCAODEVOTO", lIntencaoDeVoto, ps);
+                "NTON LE11PLEITO LE06SESSAO LE10CANDIDATURA FKSESSAOCANDIDATURA FKCANDIDATURASESSAO Candidaturas Sessoes",
+                "NTON LE13INTENCAODEVOTO LE12PESQUISA LE10CANDIDATURA FKPESQUISACANDIDATURA FKCANDIDATURAPESQUISA Candidaturas Pesquisas",
+
+                "EMBED LE08CANDIDATO LE07PARTIDO Partido FKPARTIDOCANDIDATO",
+
+                "REMOVE LE07PARTIDO",
+        };
+
+        for(String commandLine : commands){
+            System.out.println(commandLine);
+
+            String whatToDo = commandLine.split(" ")[0];
+
+            switch (whatToDo) {
+                case "1TON":
+                    call1ToN(commandLine);
+                    break;
+                case "NTON":
+                    callNToN(commandLine);
+                    break;
+                case "EMBED":
+                    callEmbed(commandLine);
+                    break;
+                case "REMOVE":
+                    callRemove(commandLine);
+                    break;
+                case "EXIT":
+                    return;
+                default:
+                    throw new Exception();
+            }
+        }
+    }
+
+    public static void callFromInputStream(InputStream is) throws Exception {
+        Scanner sc = new Scanner(is);
+        String commandLine;
+
+        while (sc.hasNextLine()){
+            commandLine = sc.nextLine();
+
+            if (commandLine.toUpperCase().equals("EXIT")) return;
+
+            if(commandLine.endsWith(";")) commandLine = commandLine.substring(0, commandLine.length() - 1);
+
+            commandLine = commandLine.trim();
+
+            if(commandLine.length() == 0) continue;
+
+            String whatToDo = commandLine.split(" ")[0].toUpperCase();
+
+            System.out.println(commandLine);
+
+            try {
+                switch (whatToDo) {
+                    case "GO!":
+                        callTest();
+                        return;
+                    case "1TON":
+                        call1ToN(commandLine);
+                        break;
+                    case "NTON":
+                        callNToN(commandLine);
+                        break;
+                    case "EMBED":
+                        callEmbed(commandLine);
+                        break;
+                    case "REMOVE":
+                        callRemove(commandLine);
+                        break;
+                    case "EXIT":
+                        return;
+                    case "HELP":
+                        System.out.println(
+                                " - AVAILABLE COMMANDS -\n" +
+                        "1ToN TableToBeProcessed\n\n" +
+                        "NToN TableWithReferences\n" +
+                        "     TableToReceiveExtraFields TableThatWillNotReceiveExtraFields\n" +
+                        "     FkNameTowardsReceiver FkNameTowardsNonReceiver\n" +
+                        "     NewFieldInReceiver NewFieldInExtra\n\n" +
+                        "EMBED TableToReceive TableToBeEmbedded FieldInReceivingTable FkNameInTableToBeEmbedded\n\n" +
+                        "REMOVE TableToBeProcessed\n\n");
+                        break;
+                    default:
+                        System.out.println("ERROR! COMMAND NOT FOUND!");
+                }
+            }catch(ArrayIndexOutOfBoundsException aiobe){
+                System.out.println("ERROR! TOO FEW PARAMETERS!");
+            }
+        }
+    }
+
+    public static void callFromArguments(String[] args) throws Exception {
+        String commands = "";
+
+        for(String arg : args){
+            commands = commands.trim() + " " + arg.trim();
+        }
+        commands = commands.trim();
+
+        String[] commandArray = commands.split(";");
+        for(int i = 0; i < commandArray.length; i++){
+            commandArray[i] = commandArray[i].trim().toUpperCase();
         }
 
-	}
+        for (String commandLine : commandArray) {
+            String whatToDo = commandLine.split(" ")[0];
+
+            switch (whatToDo) {
+                case "1TON":
+                    call1ToN(commandLine);
+                    break;
+                case "NTON":
+                    callNToN(commandLine);
+                    break;
+                case "EMBED":
+                    callEmbed(commandLine);
+                    break;
+                case "REMOVE":
+                    callRemove(commandLine);
+                    break;
+                case "EXIT":
+                    return;
+                default:
+                    throw new Exception();
+            }
+        }
+    }
+
+    public static void call1ToN(String commandLine) throws SQLException {
+        String table = commandLine.split(" ")[1];
+        databaseMap.put(table, do1ToN(table));
+    }
+
+    public static void callNToN(String commandLine) throws SQLException {
+        String[] commandSplitted = commandLine.split(" ");
+
+        String table1 = commandSplitted[1];
+        String table2 = commandSplitted[2];
+        String table3 = commandSplitted[3];
+
+        ensureTableExistenceOnMap(table1);
+        ensureTableExistenceOnMap(table2);
+        ensureTableExistenceOnMap(table3);
+
+        createNToNRelations(databaseMap.get(commandSplitted[1]),
+                            databaseMap.get(commandSplitted[2]),
+                            databaseMap.get(commandSplitted[3]),
+                            commandSplitted[4],
+                            commandSplitted[5],
+                            commandSplitted[6],
+                            commandSplitted[7]);
+    }
+
+    public static void callEmbed(String commandLine) throws SQLException {
+        String[] commandSplitted = commandLine.split(" ");
+
+        String table1 = commandSplitted[1];
+        String table2 = commandSplitted[2];
+
+        ensureTableExistenceOnMap(table1);
+        ensureTableExistenceOnMap(table2);
+
+        databaseMap.replace(commandSplitted[1],
+                embed(databaseMap.get(commandSplitted[1]),
+                        databaseMap.get(commandSplitted[2]),
+                        commandSplitted[3],
+                        commandSplitted[4]));
+    }
+
+    public static void callRemove(String commandLine) throws SQLException {
+        String table = commandLine.split(" ")[1];
+        databaseMap.remove(table);
+    }
+
+    public static void ensureTableExistenceOnMap(String table) throws SQLException {
+        if(!databaseMap.containsKey(table)){
+            databaseMap.put(table, do1ToN(table));
+        }
+    }
+
+    public static void writeTables(String fileName) throws FileNotFoundException{
+        File file = new File(fileName);
+        file.delete();
+        try(PrintStream ps = new PrintStream(file)) {
+            databaseMap.forEach((name, value) -> {
+                writeCommands(name, value, ps);
+            });
+        }
+    }
 
 	public static void writeCommands(String tableName, ArrayList<BasicDBObject> data, PrintStream out){
         if(data == null) return;
@@ -306,8 +462,7 @@ public class TestMainClass {
         ArrayList<String> allForeignKeys = new ArrayList<>();
         foreignKeyBundles.forEach(fkb -> fkb.fks.forEach(fk -> allForeignKeys.add(fk.fkVariable)));
 
-        //System.out.println("db.createCollection(\""+ targetTable +"\")");
-        System.out.println(targetTable);
+        //System.out.println(targetTable);
         while(rs.next()){
             BasicDBObject obj = new BasicDBObject();
 
@@ -370,7 +525,6 @@ public class TestMainClass {
                         obj.put(columnName, Double.valueOf(value));
                     }else if(valueAsDate != null){
                         obj.put(columnName, valueAsDate);
-                        System.out.println(obj.toString());
                     }else{
                         obj.put(columnName, value);
                     }
@@ -378,7 +532,6 @@ public class TestMainClass {
             }
 
             String bsonString = obj.toString();
-            System.out.println(bsonString);
 
             resultArray.add(obj);
         }
@@ -483,8 +636,7 @@ public class TestMainClass {
                     stream().
                     filter(fkFiltered -> fkFiltered.fkName.equals(fkName)).
                     forEach(fkb.fks::add);
-            //fkb.fks.stream().map((obj) -> obj.fkName).distinct().forEach(System.out::println);
-            //System.out.println(fkName);
+
             Collections.sort(fkb.fks, (ForeignKey fk, ForeignKey fk2) -> fk.pkVariable.compareTo(fk2.pkVariable));
 
             foreignKeyBundles.add(fkb);
@@ -528,6 +680,8 @@ public class TestMainClass {
             //STEP 4: Execute a query
             System.out.println("Creating statement...");
             stmt = conn.createStatement();
+
+            System.out.println("DONE!");
 
             return CONNECTION_SUCCESS;
         }catch(SQLException se){

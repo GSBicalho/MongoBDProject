@@ -2,10 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c9ac0cb-a531-40c6-9a97-41159c0868e9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/org_mongodb_mongo_java_driver_3_3_0.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/TestMainClass.class" afterPath="$PROJECT_DIR$/bin/TestMainClass.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/ProjectMongoBD.iml" afterPath="$PROJECT_DIR$/ProjectMongoBD.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestMainClass.java" afterPath="$PROJECT_DIR$/src/TestMainClass.java" />
     </list>
     <ignored path="ProjectMongoBD.iws" />
@@ -30,17 +28,17 @@
       <file leaf-file-name="TestMainClass.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TestMainClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="236">
-              <caret line="108" column="5" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
+            <state relative-caret-position="257">
+              <caret line="138" column="30" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="30" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-                <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+                <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+                <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+                <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
                 <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
                 <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
                 <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
                 <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-                <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
                 <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
                 <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
                 <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -51,9 +49,7 @@
                 <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
                 <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
                 <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-                <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
                 <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-                <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
               </folding>
             </state>
           </provider>
@@ -62,8 +58,8 @@
       <file leaf-file-name="file.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/file.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="35">
-              <caret line="367" column="110" selection-start-line="367" selection-start-column="110" selection-end-line="367" selection-end-column="110" />
+            <state relative-caret-position="442">
+              <caret line="26" column="77" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -83,6 +79,7 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/ProjectMongoBD.iml" />
+        <option value="$PROJECT_DIR$/file.txt" />
         <option value="$PROJECT_DIR$/src/TestMainClass.java" />
       </list>
     </option>
@@ -125,11 +122,8 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope">
-        <subPane subId="Problems" />
-        <subPane subId="Production" />
-        <subPane subId="Project Files" />
-        <subPane subId="Tests" />
+      <pane id="PackagesPane">
+        <subPane />
       </pane>
       <pane id="ProjectPane">
         <subPane>
@@ -169,11 +163,14 @@
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane">
-        <subPane />
-      </pane>
       <pane id="Scratches">
         <subPane />
+      </pane>
+      <pane id="Scope">
+        <subPane subId="Problems" />
+        <subPane subId="Production" />
+        <subPane subId="Project Files" />
+        <subPane subId="Tests" />
       </pane>
     </panes>
   </component>
@@ -465,7 +462,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479591395778</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Data type treatment">
+      <created>1479613059142</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1479613059142</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -482,8 +486,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33911672" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24670571" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24670571" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -494,6 +497,7 @@
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329653" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -513,7 +517,8 @@
     <MESSAGE value="finished first iteration" />
     <MESSAGE value="added NToN relations" />
     <MESSAGE value="finished all embedding and relations. All that is missing is treating data types" />
-    <option name="LAST_COMMIT_MESSAGE" value="finished all embedding and relations. All that is missing is treating data types" />
+    <MESSAGE value="Data type treatment" />
+    <option name="LAST_COMMIT_MESSAGE" value="Data type treatment" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -530,13 +535,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -547,9 +552,43 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" column="23" selection-start-line="12" selection-start-column="23" selection-end-line="12" selection-end-column="23" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/TestMainClass.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
+            <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
+            <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
+            <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#isNumber#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#getColumnNames#0;class#TestMainClass#0" expanded="false" />
+            <element signature="class#ForeignKeyBundle#0;class#TestMainClass#0" expanded="false" />
+            <element signature="class#ForeignKey#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -560,13 +599,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -577,9 +616,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -590,13 +627,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -607,9 +644,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -620,13 +655,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -637,9 +672,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -650,13 +683,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -667,9 +700,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -680,13 +711,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -697,9 +728,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -710,13 +739,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -727,9 +756,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -740,13 +767,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -757,9 +784,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -770,13 +795,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -787,9 +812,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -800,13 +823,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -817,9 +840,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -830,13 +851,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -847,9 +868,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -860,13 +879,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -877,9 +896,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -890,13 +907,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -907,9 +924,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -920,13 +935,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -937,9 +952,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -950,13 +963,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -967,9 +980,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -980,13 +991,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -997,9 +1008,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1010,13 +1019,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -1027,9 +1036,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1040,13 +1047,13 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -1057,9 +1064,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
@@ -1081,25 +1086,25 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/file.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="35">
-          <caret line="367" column="110" selection-start-line="367" selection-start-column="110" selection-end-line="367" selection-end-column="110" />
+        <state relative-caret-position="442">
+          <caret line="26" column="77" selection-start-line="26" selection-start-column="77" selection-end-line="26" selection-end-column="77" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/TestMainClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="108" column="5" selection-start-line="108" selection-start-column="5" selection-end-line="108" selection-end-column="5" />
+        <state relative-caret-position="257">
+          <caret line="138" column="30" selection-start-line="138" selection-start-column="30" selection-end-line="138" selection-end-column="30" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#writeCommands#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callNToN#0;class#TestMainClass#0" expanded="false" />
+            <element signature="method#callEmbed#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#TwoStrings#0;class#TestMainClass#0" expanded="false" />
             <element signature="class#ExtraSideOfNToNRelation#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#createNToNRelations#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#embed#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#do1ToN#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#do1ToN#1;class#TestMainClass#0" expanded="false" />
             <element signature="method#toDate#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#isInteger#0;class#TestMainClass#0" expanded="false" />
@@ -1110,9 +1115,7 @@
             <element signature="method#getForeignKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#getPrimaryKeys#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#makeId#0;class#TestMainClass#0" expanded="false" />
-            <element signature="method#startConnection#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#closeConnection#0;class#TestMainClass#0" expanded="false" />
-            <marker date="1479612786135" expanded="false" signature="4804:5548" ph="{...}" />
           </folding>
         </state>
       </provider>
