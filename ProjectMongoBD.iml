@@ -19,26 +19,12 @@
     <orderEntry type="module-library">
       <library>
         <CLASSES>
-          <root url="jar://$MODULE_DIR$/jars/bson-3.0.1.jar!/" />
-          <root url="jar://$MODULE_DIR$/jars/mongodb-driver-3.0.1.jar!/" />
-          <root url="jar://$MODULE_DIR$/jars/mongodb-driver-core-3.0.1.jar!/" />
-        </CLASSES>
-        <JAVADOC />
-        <SOURCES>
-          <root url="jar://$MODULE_DIR$/jars/bson-3.0.1-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/jars/mongodb-driver-3.0.1-sources.jar!/" />
-          <root url="jar://$MODULE_DIR$/jars/mongodb-driver-core-3.0.1-sources.jar!/" />
-        </SOURCES>
-      </library>
-    </orderEntry>
-    <orderEntry type="module-library">
-      <library>
-        <CLASSES>
           <root url="jar://$MODULE_DIR$/jars/ojdbc7.jar!/" />
         </CLASSES>
         <JAVADOC />
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="org.mongodb:mongo-java-driver:3.3.0" level="project" />
   </component>
 </module>

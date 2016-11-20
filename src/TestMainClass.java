@@ -1,12 +1,13 @@
 import com.mongodb.BasicDBObject;
+import org.bson.json.JsonMode;
+import org.bson.json.JsonWriterSettings;
 
-import java.io.File;
-import java.io.PrintStream;
+import java.io.*;
 import java.sql.*;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.Optional;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.*;
+import java.util.Date;
 
 public class TestMainClass {
     // JDBC driver name and database URL
@@ -112,15 +113,16 @@ public class TestMainClass {
 
         out.println("db.createCollection(\"" + tableName + "\")");
         data.forEach((obj) -> {
-            out.println("db." + tableName + ".insert(" + obj.toString() + ")");
+            out.println("db." + tableName + ".insert(" + obj.toJson(new JsonWriterSettings(JsonMode.SHELL)) + ")");
         });
         out.println();
     }
 
     public static class TwoStrings{
-        String name, content;
+        String name;
+        Object content;
 
-        public TwoStrings(String name, String content){
+        public TwoStrings(String name, Object content){
             this.name = name;
             this.content = content;
         }
@@ -151,7 +153,7 @@ public class TestMainClass {
 
     public static class ExtraSideOfNToNRelation{
         public String id;
-        public ArrayList<String> references = new ArrayList<>();
+        public ArrayList<Object> references = new ArrayList<>();
 
         public ExtraSideOfNToNRelation(String id){
             this.id = id;
@@ -203,12 +205,12 @@ public class TestMainClass {
             objWithReferences.forEach((String name, Object value) -> {
                 if(!name.equals("_id") && !name.equals(fkNameTowardsReceiver) && !name.equals(fkNameTowardsExtra)) {
                     //receiver.references.add(new TwoStrings(name, (String) value));
-                    twoStringsArrayList.add(new TwoStrings(name, (String) value));
+                    twoStringsArrayList.add(new TwoStrings(name, value));
                 }else if(name.equals(fkNameTowardsExtra)){
                     //receiver.references.add(new TwoStrings("_id", (String) value));
-                    twoStringsArrayList.add(new TwoStrings("_id", (String) value));
+                    twoStringsArrayList.add(new TwoStrings("_id", value));
                 }else if(name.equals(fkNameTowardsReceiver)){
-                    extra.references.add((String) value);
+                    extra.references.add(value);
                 }
             });
             receiver.references.add(twoStringsArrayList);
@@ -327,6 +329,7 @@ public class TestMainClass {
                         for (ForeignKey foreignKey : foreignKeyBundle.fks) {
                             foreignKeyString += "_" + rs.getString(foreignKey.fkVariable);
                         }
+
                         obj.put(foreignKeyBundle.fks.get(0).fkName, foreignKeyString);
                     } else {
                         List<String> pks = getPrimaryKeys(foreignKeyBundle.fks.get(0).referencedTable);
@@ -357,8 +360,20 @@ public class TestMainClass {
 
             //creating rest of variables
             for(String columnName : columnNames){
-                if(!allForeignKeys.contains(columnName) && rs.getString(columnName) != null){
-                    obj.put(columnName, rs.getString(columnName));
+                String value = rs.getString(columnName);
+                if(!allForeignKeys.contains(columnName) && value != null){
+                    Date valueAsDate = toDate(value);
+
+                    if(isInteger(value)){
+                        obj.put(columnName, Integer.valueOf(value));
+                    }else if(isNumber(value)) {
+                        obj.put(columnName, Double.valueOf(value));
+                    }else if(valueAsDate != null){
+                        obj.put(columnName, valueAsDate);
+                        System.out.println(obj.toString());
+                    }else{
+                        obj.put(columnName, value);
+                    }
                 }
             }
 
@@ -369,6 +384,35 @@ public class TestMainClass {
         }
 
         return resultArray;
+    }
+
+    public static Date toDate(String value){
+        //2016-03-05 00:00:00.0
+        try {
+            value = value.substring(0, value.lastIndexOf('.') - 1);
+            SimpleDateFormat parser = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+            return parser.parse(value);
+        } catch (Exception e) {
+            return null;
+        }
+    }
+
+    public static boolean isInteger(String num){
+        try{
+            Integer.parseInt(num);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
+    }
+
+    public static boolean isNumber(String num){
+        try{
+            Double.parseDouble(num);
+            return true;
+        }catch(Exception e){
+            return false;
+        }
     }
 
 	public static ArrayList<String> getColumnNames(ResultSet rs) throws SQLException {
