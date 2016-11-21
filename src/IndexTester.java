@@ -12,7 +12,7 @@ public class IndexTester {
     public static void main(String[] args) {
 //        int opAmount = Integer.getInteger(args[0]);
 //        new IndexTester().benchmark(opAmount);
-        new IndexTester().benchmark(1000000);
+        new IndexTester().benchmark(100);
     }
 
     public Document generateRandomTuple() {
@@ -80,37 +80,3 @@ public class IndexTester {
     }
 }
 
-class Cache {
-    private List<Document> cache;
-    private int maxSize;
-
-    public Cache(int maxSize) {
-        cache = new ArrayList<Document>();
-        this.maxSize = maxSize;
-    }
-
-    public void add(Document doc) {
-        if (cache.size() == maxSize) {
-            Random rand = new Random();
-            if(rand.nextBoolean()) return;
-
-            cache.remove(rand.nextInt(cache.size()));
-            cache.add(doc);
-        }
-        cache.add(doc);
-    }
-
-    public void addAll(List<Document> list){
-        if (list.size() + cache.size() > maxSize) {
-            Random rand = new Random();
-            for(int i = 0; i < maxSize - list.size() + cache.size(); i++) {
-                this.add(list.get(rand.nextInt(list.size())));
-            }
-        }
-        cache.addAll(list);
-    }
-
-    public Document getRandom() {
-        return cache.get(new Random().nextInt(cache.size()));
-    }
-}
