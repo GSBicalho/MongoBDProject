@@ -15,7 +15,7 @@ public class TestMainClass {
 
     public static String db_url = "jdbc:oracle:thin:@localhost:1521:xe";
     public static String user = "g8937204";
-    public static String pass = "4703es";
+    public static String pass = "g8937204";
 
     public static Connection conn = null;
     public static Statement stmt = null;

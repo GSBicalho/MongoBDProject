@@ -2,8 +2,6 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="6c9ac0cb-a531-40c6-9a97-41159c0868e9" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/validacoes.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/bin/TestMainClass.class" afterPath="$PROJECT_DIR$/bin/TestMainClass.class" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/TestMainClass.java" afterPath="$PROJECT_DIR$/src/TestMainClass.java" />
     </list>
@@ -29,11 +27,10 @@
       <file leaf-file-name="TestMainClass.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/TestMainClass.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="280">
-              <caret line="362" column="107" selection-start-line="362" selection-start-column="57" selection-end-line="362" selection-end-column="107" />
+            <state relative-caret-position="145">
+              <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
                 <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
                 <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
                 <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -75,7 +72,7 @@
       <file leaf-file-name="file.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/file.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-7680">
+            <state relative-caret-position="-5320">
               <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
               <folding />
             </state>
@@ -108,8 +105,8 @@
         <option value="$PROJECT_DIR$/ProjectMongoBD.iml" />
         <option value="$PROJECT_DIR$/file.txt" />
         <option value="$PROJECT_DIR$/index.txt" />
-        <option value="$PROJECT_DIR$/src/TestMainClass.java" />
         <option value="$PROJECT_DIR$/validacoes.txt" />
+        <option value="$PROJECT_DIR$/src/TestMainClass.java" />
       </list>
     </option>
   </component>
@@ -176,6 +173,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="MongoBDProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MongoBDProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="MongoBDProject" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -506,7 +517,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479619998362</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added Validation">
+      <created>1479693898301</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1479693898301</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -523,7 +541,7 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33753943" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.072474375" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.12079063" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -556,7 +574,8 @@
     <MESSAGE value="finished all embedding and relations. All that is missing is treating data types" />
     <MESSAGE value="Data type treatment" />
     <MESSAGE value="Added user input" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added user input" />
+    <MESSAGE value="Added Validation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added Validation" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -582,7 +601,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -632,7 +650,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -674,7 +691,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -716,7 +732,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -750,7 +765,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -784,7 +798,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -818,7 +831,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -852,7 +864,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -886,7 +897,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -920,7 +930,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -954,7 +963,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -988,7 +996,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -1022,7 +1029,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -1056,7 +1062,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -1090,7 +1095,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -1124,7 +1128,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -1158,7 +1161,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -1192,7 +1194,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -1226,7 +1227,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -1260,7 +1260,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -1294,7 +1293,6 @@
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
@@ -1337,22 +1335,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/index.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/file.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-7680">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/file2.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2334">
@@ -1369,13 +1351,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/index.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="44" selection-start-line="15" selection-start-column="44" selection-end-line="15" selection-end-column="44" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/file.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-5320">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/TestMainClass.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="280">
-          <caret line="362" column="107" selection-start-line="362" selection-start-column="57" selection-end-line="362" selection-end-column="107" />
+        <state relative-caret-position="145">
+          <caret line="17" column="41" selection-start-line="17" selection-start-column="41" selection-end-line="17" selection-end-column="41" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="method#main#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callTest#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromInputStream#0;class#TestMainClass#0" expanded="false" />
             <element signature="method#callFromArguments#0;class#TestMainClass#0" expanded="false" />
