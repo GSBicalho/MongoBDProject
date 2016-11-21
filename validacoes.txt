@@ -1,0 +1,102 @@
+use test
+db.runCommand( {
+    collMod: "LE01ESTADO",
+    validator : { $and : [ { SIGLA : { $exists : true, $type : "string" } },
+                            { NOME : { $exists : true, $type : "string" } } ] },
+    validationLevel: "strict",
+    validationAction: "warn"
+} )
+db.runCommand( {
+    collMod: "LE02CIDADE",
+    validator : { $and : [ { NOME : { $exists : true, $type : "string" } },
+                            { FKESTADOCIDADE : { $exists : true, $type : "string" } },
+                            { POPULACAO : { $exists : true, $gte : 0 } } ] },
+    validationLevel: "strict",
+    validationAction: "warn"
+} )
+db.runCommand( {
+    collMod: "LE03ZONA",
+    validator : { $and : [ { NROZONA : { $exists : true } },
+                            { NRODEURNASRESERVAS : { $exists : true } } ] },
+    validationLevel: "strict",
+    validationAction: "warn"
+} )
+db.runCommand( {
+    collMod: "LE04BAIRRO",
+    validator : { $and : [ { NOME : { $exists : true, $type : "string" } },
+                            { FKCIDADEBAIRRO : { $exists : true, $type : "string" } },
+                            { FKZONABAIRRO : { $exists : true, $type : "string" } } ] },
+    validationLevel: "strict",
+    validationAction: "warn"
+} )
+db.runCommand( {
+    collMod: "LE05URNA",
+    validator : { $and : [ { NSERIAL : { $exists : true } },
+                            { ESTADO : { $exists : true, $in : [ "funcional", "manutencao" ] } } ] },
+    validationLevel: "strict",
+    validationAction: "warn"
+} )
+db.runCommand( {
+    collMod: "LE06SESSAO",
+    validator : { $and : [ { NROSESSAO : { $exists : true } },
+                            { FKURNASESSAO : { $exists : true } } ] },
+    validationLevel: "strict",
+    validationAction: "warn"
+} )
+db.runCommand( {
+    collMod: "LE08CANDIDATO",
+    validator : { $and : [ { NROCAND : { $exists : true } },
+                        { TIPO : { $exists : true } },
+                        { NOME : { $exists : true, $type : "string" } },
+                        { $or : [ { $and : [ { TIPO : { $eq : "politico" } },
+                                            { FKPARTIDOCANDIDATO : { $exists : true } },
+                                            { CPF : { $exists : true } } ] },
+                                  { $and : [ { TIPO : { $eq : "especial" } },
+                                            { FKPARTIDOCANDIDATO : { $exists : false } },
+                                            { CPF : { $exists : false } },
+                                            { IDADE : { $exists : false } },
+                                            { APELIDO : { $exists : false } } ] }
+                                ] } ] },
+    validationLevel: "strict",
+    validationAction: "warn"
+} )
+db.runCommand( {
+    collMod: "LE09CARGO",
+    validator : { $and : [ { CODCARGO : { $exists : true } },
+                            { POSSUIVICE : { $exists : true, $in : [ 0, 1 ] } },
+                            { ANOBASE : { $exists : true, $gte : 1985, $lte : 2100 } },
+                            { ANOSMANDATO : { $exists : true, $gt : 0 } },
+                            { NOMEDESCRITIVO : { $exists : true } },
+                            { NRODECADEIRAS : { $exists : true, $gt : 0 } },
+                            { ESFERA : { $exists : true } },
+                            { SALARIO : { $gt : 0 } },
+                            { $or : [ { $and : [ { ESFERA : { $eq : "F" } },
+                                            { FKCIDADECARGO : { $exists : false } },
+                                            { FKESTADOCARGO : { $exists : false } } ] },
+                                      { $and : [ { ESFERA : { $eq : "E" } },
+                                            { FKCIDADECARGO : { $exists : false } },
+                                            { FKESTADOCARGO : { $exists : true } } ] },
+                                      { $and : [ { ESFERA : { $eq : "M" } },
+                                            { FKCIDADECARGO : { $exists : true } },
+                                            { FKESTADOCARGO : { $exists : true } } ] }
+                            ] } ] },
+    validationLevel: "strict",
+    validationAction: "warn"
+} )
+db.runCommand( {
+    collMod: "LE10CANDIDATURA",
+    validator : { $and : [ { REG : { $exists : true } },
+                            { FKCARGOCANDIDATURA : { $exists : true } },
+                            { ANO : { $exists : true, $gte : 1985, $lte : 2100 } },
+                            { FKCANDIDATOCANDIDATURA : { $exists : true } } ] },
+    validationLevel: "strict",
+    validationAction: "warn"
+} )
+db.runCommand( {
+    collMod: "LE12PESQUISA",
+    validator : { $and : [ { REGPESQUISA : { $exists : true } },
+                            { PERIODOINICIO : { $exists : true } },
+                            { PERIODOFIM : { $exists : true } } ] },
+    validationLevel: "strict",
+    validationAction: "warn"
+} )
