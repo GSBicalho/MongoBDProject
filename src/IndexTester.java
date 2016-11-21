@@ -12,7 +12,7 @@ public class IndexTester {
     public static void main(String[] args) {
 //        int opAmount = Integer.getInteger(args[0]);
 //        new IndexTester().benchmark(opAmount);
-        new IndexTester().benchmark(100000);
+        new IndexTester().benchmark(1000000);
     }
 
     public Document generateRandomTuple() {
