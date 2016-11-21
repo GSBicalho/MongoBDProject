@@ -48,7 +48,7 @@ public class TestMainClass {
             callFromInputStream(System.in);
             //callTest();
         }else{
-            callFromArguments(args);
+            //callFromArguments(args);
         }
 
         closeConnection();
@@ -79,6 +79,10 @@ public class TestMainClass {
                 "EMBED LE08CANDIDATO LE07PARTIDO Partido FKPARTIDOCANDIDATO",
 
                 "REMOVE LE07PARTIDO",
+                "REMOVE LE11PLEITO",
+                "REMOVE LE13INTENCAODEVOTO",
+
+                "INDEX"
         };
 
         for(String commandLine : commands){
@@ -98,6 +102,9 @@ public class TestMainClass {
                     break;
                 case "REMOVE":
                     callRemove(commandLine);
+                    break;
+                case "INDEX":
+                    callIndex(commandLine);
                     break;
                 case "EXIT":
                     return;
@@ -130,7 +137,7 @@ public class TestMainClass {
                 switch (whatToDo) {
                     case "GO!":
                         callTest();
-                        return;
+                        break;
                     case "1TON":
                         call1ToN(commandLine);
                         break;
@@ -143,6 +150,9 @@ public class TestMainClass {
                     case "REMOVE":
                         callRemove(commandLine);
                         break;
+                    case "INDEX":
+                        callIndex(commandLine);
+                        break;
                     case "EXIT":
                         return;
                     case "HELP":
@@ -154,7 +164,10 @@ public class TestMainClass {
                         "     FkNameTowardsReceiver FkNameTowardsNonReceiver\n" +
                         "     NewFieldInReceiver NewFieldInExtra\n\n" +
                         "EMBED TableToReceive TableToBeEmbedded FieldInReceivingTable FkNameInTableToBeEmbedded\n\n" +
-                        "REMOVE TableToBeProcessed\n\n");
+                        "REMOVE TableToBeProcessed\n\n" +
+                        "INDEX TableToBeIndexed\n\n" +
+                        "EXIT"
+                        );
                         break;
                     default:
                         System.out.println("ERROR! COMMAND NOT FOUND!");
@@ -248,6 +261,10 @@ public class TestMainClass {
         databaseMap.remove(table);
     }
 
+    public static void callIndex(String commandLine) throws Exception {
+        createAllIndexes();
+    }
+
     public static void ensureTableExistenceOnMap(String table) throws SQLException {
         if(!databaseMap.containsKey(table)){
             databaseMap.put(table, do1ToN(table));
@@ -262,6 +279,80 @@ public class TestMainClass {
                 writeCommands(name, value, ps);
             });
         }
+    }
+
+    public static class Constraints{
+        public char type;
+        public ArrayList<String> fields;
+
+        public Constraints(char type){
+            this.type = type;
+            fields = new ArrayList<>();
+        }
+    }
+
+    public static void createAllIndexes() throws Exception{
+        String query = "SELECT table_name FROM user_tables";
+
+        ResultSet rs = stmt.executeQuery(query);
+        ArrayList<String> tables = new ArrayList<>();
+
+        while(rs.next()){
+            tables.add(rs.getString("TABLE_NAME"));
+        }
+
+        File indexFile = new File("index.txt");
+        indexFile.delete();
+        try(PrintStream ps = new PrintStream(indexFile)){
+            for (String table : tables) {
+                createIndex(table, ps);
+            }
+        }
+    }
+
+    public static void createIndex(String table, PrintStream ps) throws SQLException, FileNotFoundException {
+
+        String query = "SELECT CONS.CONSTRAINT_NAME, CONS.CONSTRAINT_TYPE, COLS.COLUMN_NAME, FK.TABLE_NAME, FK.COLUMN_NAME " +
+        "FROM USER_CONSTRAINTS CONS " +
+        "LEFT JOIN USER_CONS_COLUMNS COLS ON CONS.CONSTRAINT_NAME = COLS.CONSTRAINT_NAME " +
+        "LEFT JOIN USER_CONS_COLUMNS FK ON FK.CONSTRAINT_NAME = CONS.R_CONSTRAINT_NAME AND FK.POSITION = COLS.POSITION " +
+        "WHERE (CONSTRAINT_TYPE = 'P' OR CONSTRAINT_TYPE = 'R' OR CONSTRAINT_TYPE = 'U') AND COLS.TABLE_NAME = '" + table + "' " +
+        "ORDER BY COLS.TABLE_NAME, COLS.COLUMN_NAME";
+
+        ResultSet rs = stmt.executeQuery(query);
+        HashMap<String, Constraints> constraintsHashMap = new HashMap<>();
+
+        while (rs.next()){
+            if(!constraintsHashMap.containsKey(rs.getString("CONSTRAINT_NAME"))){
+                constraintsHashMap.put(rs.getString("CONSTRAINT_NAME"), new Constraints(rs.getString("CONSTRAINT_TYPE").charAt(0)));
+            }
+
+            Constraints constraints = constraintsHashMap.get(rs.getString("CONSTRAINT_NAME"));
+            constraints.fields.add(rs.getString("COLUMN_NAME"));
+        }
+
+
+        constraintsHashMap.forEach((name, constraints) -> {
+            if (constraints.type == 'U') {
+                constraintsHashMap.forEach((internal_name, internal_constraints) -> {
+                    if (internal_constraints.type == 'R' && internal_constraints.fields.equals(constraints)) {
+                        constraints.fields.clear();
+                        constraints.fields.add(internal_name);
+                    }
+                });
+            }
+
+            if(constraints.type == 'U' || constraints.type == 'P'){
+                StringBuilder toPrint = new StringBuilder("db." + table + ".createIndex( {");
+                constraints.fields.forEach((str) -> toPrint.append(" " + str + " : 1,"));
+                String aux = toPrint.toString();
+
+                aux = aux.substring(0, aux.length() - 1);
+                aux += "} )";
+                ps.println(aux);
+            }
+        });
+
     }
 
 	public static void writeCommands(String tableName, ArrayList<BasicDBObject> data, PrintStream out){
@@ -482,7 +573,10 @@ public class TestMainClass {
                         }
 
                         for (ForeignKey foreignKey : foreignKeyBundle.fks) {
-                            foreignKeyString += "_" + rs.getString(foreignKey.fkVariable);
+                            String aux = rs.getString(foreignKey.fkVariable);
+                            if(aux == null) return;
+
+                            foreignKeyString += "_" + aux;
                         }
 
                         obj.put(foreignKeyBundle.fks.get(0).fkName, foreignKeyString);
